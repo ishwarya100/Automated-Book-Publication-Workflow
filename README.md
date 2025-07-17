@@ -1,6 +1,8 @@
 
 # Automated Book Publication Workflow
 
+![Mint Badge](https://img.shields.io/badge/Workflow-Scrap%E2%9E%9FRewrite%E2%9E%9FReview%E2%9E%9FFeedback-00C897?style=flat-square&logo=notion&logoColor=white)
+
 This project implements a streamlined workflow for publishing book content, featuring web scraping, AI-assisted rewriting, automated feedback generation, and version-controlled storage. Built with Python and Streamlit, it uses Playwright for scraping, NLTK and Transformers for text processing, and ChromaDB for persistent storage.
 
 ----------
@@ -160,6 +162,11 @@ Ensure you have met the prerequisites listed in the Prerequisites section, inclu
     
     -   Press Ctrl+C in the terminal to stop the Streamlit server when finished.
 ----------
+
+## Project Demo
+
+https://drive.google.com/file/d/1raQ8-6tZ2Jk2CyAij0tJxjc9n50NpNXD/view?usp=sharing
+
 ## Contributing
 
 Contributions are welcome! Please fork the repository, create a feature branch, and submit a pull request. For major changes, open an issue first to discuss.
