@@ -545,9 +545,6 @@ async def run_pipeline(url, output_dir, db_dir, feedback_type):
         print(f"Pipeline error: {type(e).__name__}: {str(e)}\nTraceback: {traceback.format_exc()}")
         return {"error": f"Pipeline failed: {type(e).__name__}: {str(e)}"}
 
-# --- Streamlit ---
-import streamlit as st
-
 # --- Streamlit UI ---
 st.title("Book Publication Workflow")
 
@@ -557,15 +554,14 @@ url = st.text_input(
     value="https://en.wikisource.org/wiki/The_Gates_of_Morning/Book_1/Chapter_1"
 )
 
-# User-friendly file path input
+# Require user to input output directory path (no default value)
 output_dir = st.text_input(
-    "Enter output directory (e.g., /path/to/output or ./output):",
-    value=""
+    "Enter Output Directory Path (example: C:/Users/user/Desktop/output):"
 )
 
+# Require user to input ChromaDB directory path (no default value)
 db_dir = st.text_input(
-    "Enter ChromaDB directory (e.g., /path/to/db or ./db):",
-    value=""
+    "Enter ChromaDB Directory Path (example: C:/Users/user/Desktop/chroma_db):"
 )
 
 feedback_type = st.radio(
