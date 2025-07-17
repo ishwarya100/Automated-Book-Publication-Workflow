@@ -546,15 +546,32 @@ async def run_pipeline(url, output_dir, db_dir, feedback_type):
         return {"error": f"Pipeline failed: {type(e).__name__}: {str(e)}"}
 
 # --- Streamlit ---
+import streamlit as st
+
+# --- Streamlit UI ---
 st.title("Book Publication Workflow")
-url = st.selectbox("Select URL:", [
-    "https://en.wikipedia.org/wiki/Python_(programming_language)",
-    "https://en.wikipedia.org/wiki/Sample_page",
-    "https://en.wikisource.org/wiki/The_Gates_of_Morning/Book_1/Chapter_1"
-])
-output_dir = st.text_input("Output directory:", r"C:\Users\user\OneDrive\Desktop\SN_Assignment\output")
-db_dir = st.text_input("ChromaDB directory:", r"C:\Users\user\OneDrive\Desktop\SN_Assignment\chroma_db")
-feedback_type = st.radio("Feedback type:", ["2. AI-improved story"])
+
+# Allow any URL with a default value
+url = st.text_input(
+    "Enter URL of Book Chapter:",
+    value="https://en.wikisource.org/wiki/The_Gates_of_Morning/Book_1/Chapter_1"
+)
+
+# User-friendly file path input
+output_dir = st.text_input(
+    "Enter output directory (e.g., /path/to/output or ./output):",
+    value=""
+)
+
+db_dir = st.text_input(
+    "Enter ChromaDB directory (e.g., /path/to/db or ./db):",
+    value=""
+)
+
+feedback_type = st.radio(
+    "Feedback type:", 
+    ["AI-improved story"]
+)
 
 if st.button("Run Pipeline"):
     os.makedirs(output_dir, exist_ok=True)
